@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-    <title>Железный Тест WebAR</title>
+    <title>ГРПШ в дополненной реальности</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
@@ -13,16 +13,19 @@
 
     <a-scene embedded 
              vr-mode-ui="enabled: false" 
-             arjs="sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;">
+             arjs="sourceType: webcam; debugUIEnabled: false;">
         
-        <a-marker preset="hiro">
+        <a-assets>
+            <a-asset-item id="grpsh-model" src="grpsh.gltf"></a-asset-item>
+        </a-assets>
+
+        <a-marker type="pattern" url="company-logo.patt">
             
-            <a-torus position="0 0.5 0" 
-                      radius="0.3" 
-                      radius-tubular="0.05" 
-                      material="color: #007bff;"
-                      animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
-            </a-torus>
+            <a-entity gltf-model="#grpsh-model" 
+                      position="0 0 0" 
+                      scale="0.01 0.01 0.01"
+                      rotation="0 0 0">
+            </a-entity>
             
         </a-marker>
 
